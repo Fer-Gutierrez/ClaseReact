@@ -1,12 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import {Login} from './Login'
+import "./App.css";
+//import Navbar from "./Navbar" --> Cuando exporto de manera (export default)
+import { Navbar } from "./Navbar"; // Cuando exporto con (export antes de la funcion).
+import Home from "./Home";
+import Footer from "./Footer";
 
 function App() {
   return (
     <div className="App">
-      <Login />
-      <h1>Hola desde React</h1>
+      <Navbar />
+      <Home />
+      <Footer />
     </div>
   );
 }
