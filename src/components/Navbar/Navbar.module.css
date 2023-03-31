@@ -1,0 +1,12 @@
+/* Debemos linker el archivo css fuera del componente jsx
+* Podemos importar de forma pura o con modulos
+* si es con Modulos debemos cambiar el nombre del archivo css a .module.css
+* si importamos con module --> usamos camelCase
+*/
+.containerNavbar{
+  width: 100%;
+  height: 10vh;
+  display: flex;  
+  justify-content: space-between;
+  background-color: steelblue;
+}
