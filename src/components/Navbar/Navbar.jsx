@@ -9,6 +9,7 @@
   //en este caso usariamos --> className={"container-navbar"}
 
   //Importar un archivo CCS Modules: --> (mas usado)
+import CartWidget from "../CartWidget/CartWidget";
 import styles from "./Navbar.module.css";
 
 //CLASES --> En React se usa ClassName
@@ -20,6 +21,7 @@ export const Navbar = ({color}) => {
         <li>Servicios</li>
         <li>Contacto</li>
       </ul>
+      <CartWidget/>
     </div>
   );
 };
