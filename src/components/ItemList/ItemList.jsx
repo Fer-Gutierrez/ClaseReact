@@ -1,12 +1,9 @@
 //las props se trasfieren de padre a hijo
-//Siempre se desestructura las props que se envian 
+//Siempre se desestructura las props que se envian
 //--> pero se pueden desestrucurar directamente entre llaves dentro de los () de la funcion
-const ItemList = ({saludo, edad}) => {
-  
+const ItemList = ({ saludo, edad }) => {
   //Desestructurar siempre las props:
   // let {edad, saludo} = props
-
-  console.log()
 
   return (
     <div>
