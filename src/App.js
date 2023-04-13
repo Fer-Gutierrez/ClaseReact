@@ -6,6 +6,9 @@ import { Navbar } from "./components/Navbar/Navbar";
 import "./App.css";
 import FetchingData from "./components/FetchingData/FetchingData";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
+import CounterDeHook from "./components/CounterDeHook/CounterDeHook";
+import FetchDeHookContainer from "./components/FetchDeHook/FetchDeHookContainer";
+
 //import Navbar from "./Navbar" --> Cuando exporto de manera (export default)
 //import { Navbar } from "./Navbar"; // Cuando exporto con (export antes de la funcion).
 
@@ -22,6 +25,8 @@ function App() {
       <Counter />
       <FetchingData />
       <ItemDetailContainer />
+      <CounterDeHook />
+      <FetchDeHookContainer />
     </div>
   );
 }

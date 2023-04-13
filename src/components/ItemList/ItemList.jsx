@@ -3,6 +3,8 @@
 //--> pero se pueden desestrucurar directamente entre llaves dentro de los () de la funcion
 const ItemList = ({saludo, edad}) => {
   
+  //ACA LO VIEJO
+
   //Desestructurar siempre las props:
   // let {edad, saludo} = props
 
