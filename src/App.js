@@ -4,6 +4,7 @@ import ItemList from "./components/ItemList/ItemList";
 import { Navbar } from "./components/Navbar/Navbar";
 
 import "./App.css";
+import CicloVidaCompContainer from "./components/CicloVidaComponente/CicloVidaCompContainer";
 //import Navbar from "./Navbar" --> Cuando exporto de manera (export default)
 //import { Navbar } from "./Navbar"; // Cuando exporto con (export antes de la funcion).
 
@@ -18,6 +19,7 @@ function App() {
       <Navbar color={"red"} />
       <ItemList saludo={saludo} edad={edad} esMayor={false} />
       <CounterContainer />
+      <CicloVidaCompContainer />
     </div>
   );
 }
