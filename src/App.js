@@ -1,19 +1,14 @@
-import "./App.css";
-import Counter from "./components/Counter/Counter";
-import CounterContainer from "./components/Counter/CounterContainer";
-import ItemList from "./components/ItemList/ItemList";
-import { Navbar } from "./components/Navbar/Navbar";
-
-import "./App.css";
-import FetchingData from "./components/FetchingData/FetchingData";
-import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
-import CounterDeHook from "./components/CounterDeHook/CounterDeHook";
-import FetchDeHookContainer from "./components/FetchDeHook/FetchDeHookContainer";
-
-import CicloVidaCompContainer from "./components/CicloVidaComponente/CicloVidaCompContainer";
-
 //import Navbar from "./Navbar" --> Cuando exporto de manera (export default)
 //import { Navbar } from "./Navbar"; // Cuando exporto con (export antes de la funcion).
+import "./App.css";
+import CounterContainer from "./components/Counter/CounterContainer";
+import Props from "./components/Props/Props";
+import { Navbar } from "./components/Navbar/Navbar";
+import FetchingData from "./components/FetchingData/FetchingData";
+import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
+import CounterDeHookContainer from "./components/CounterDeHook/CounterDeHookContainer";
+import FetchDeHookContainer from "./components/FetchDeHook/FetchDeHookContainer";
+import CicloVidaCompContainer from "./components/CicloVidaComponente/CicloVidaCompContainer";
 
 function App() {
   let saludo = "hola como estas?";
@@ -24,15 +19,13 @@ function App() {
   return (
     <div className="App">
       <Navbar color={"red"} />
-      <ItemList saludo={saludo} edad={edad} esMayor={false} />
-      <Counter />
-      <FetchingData />
+      <Props saludo={saludo} edad={edad} esMayor={false} />
       <ItemDetailContainer />
-      <CounterDeHook />
-      <FetchDeHookContainer />
       <CounterContainer />
       <CicloVidaCompContainer />
-
+      <FetchingData />
+      <CounterDeHookContainer />
+      <FetchDeHookContainer />
     </div>
   );
 }

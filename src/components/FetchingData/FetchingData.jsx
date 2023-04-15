@@ -27,7 +27,7 @@ const FetchingData = () => {
       // },
       body: JSON.stringify({
         userId: 1,
-        title: "Estoy probando un posst",
+        title: "Estoy probando un post",
         body: "esto es una prueba.",
       }),
     });
@@ -55,6 +55,10 @@ const FetchingData = () => {
       <h1>Peticiones</h1>
       <button onClick={crearNuevoPost}>Crear Post</button>
       <button onClick={modificarPost}>Modificar Post</button>
+      <p>
+        Ver en PostMan (https://jsonplaceholder.typicode.com/posts) y ConsoleLog
+        los cambios.
+      </p>
     </div>
   );
 };
