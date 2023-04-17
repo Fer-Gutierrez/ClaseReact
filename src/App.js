@@ -9,6 +9,7 @@ import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import CounterDeHookContainer from "./components/CounterDeHook/CounterDeHookContainer";
 import FetchDeHookContainer from "./components/FetchDeHook/FetchDeHookContainer";
 import CicloVidaCompContainer from "./components/CicloVidaComponente/CicloVidaCompContainer";
+import ItemListContainer from "./components/ItemList/ItemListContainer";
 
 function App() {
   let saludo = "hola como estas?";
@@ -20,10 +21,17 @@ function App() {
     <div className="App">
       <Navbar color={"red"} />
       <Props saludo={saludo} edad={edad} esMayor={false} />
-      <ItemDetailContainer />
       <CounterContainer />
+      <hr />
       <CicloVidaCompContainer />
       <FetchingData />
+      <hr />
+      <h1>Ejercicio de Clase 6:</h1>
+      <ItemDetailContainer />
+      <hr />
+      <h1>Item List</h1>
+      <ItemListContainer />
+      <hr />
       <CounterDeHookContainer />
       <FetchDeHookContainer />
     </div>
