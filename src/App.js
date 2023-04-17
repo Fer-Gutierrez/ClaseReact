@@ -31,9 +31,9 @@ function App() {
       <hr />
       <h1>Item List</h1>
       <ItemListContainer />
-      {/* <hr/>
+      <hr />
       <CounterDeHookContainer />
-      <FetchDeHookContainer /> */}
+      <FetchDeHookContainer />
     </div>
   );
 }

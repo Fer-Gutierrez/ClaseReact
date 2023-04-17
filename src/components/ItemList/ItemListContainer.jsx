@@ -41,11 +41,9 @@ const ItemListContainer = () => {
     APIProducts.then(res => setItems(res)).catch(err => console.log(err));
   }, []);
 
-  console.log(items);
-
   return (
     <div>
-      <ItemList />
+      <ItemList items={items} />
     </div>
   );
 };

@@ -10,11 +10,11 @@ export const products = [
   },
   {
     id: 2,
-    title: "wilson advance",
+    title: "Wilson Advance",
     price: 14500,
     stock: 5,
     description: "Ultra livianas y cuentan con camara de aire",
-    category: "deportivas",
+    category: "Deportivas",
     img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430010/foc364fsakkzmausrovn.jpg",
   },
   {
@@ -24,7 +24,7 @@ export const products = [
     stock: 7,
     description:
       "Las clasicas zapatillas que van para cualquier momento del dia",
-    category: "urbanas",
+    category: "Urbanas",
     img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430165/images_lujpmr.jpg",
   },
   {
@@ -33,7 +33,7 @@ export const products = [
     price: 17800,
     stock: 10,
     description: "Zapatillas de ultima generacion para el deporte",
-    category: "urbanas",
+    category: "Urbanas",
     img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg",
   },
 ];
