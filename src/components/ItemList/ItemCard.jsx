@@ -6,6 +6,7 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const ItemCard = ({ item }) => {
   return (
@@ -31,9 +32,14 @@ const ItemCard = ({ item }) => {
         <Button variant="contained" size="small">
           Comprar
         </Button>
-        <Button variant="contained" size="small">
-          Ver mas
-        </Button>
+
+        {/* Con la etiqueta Link de react-router-dom llevo a la vista "detalle" */}
+        {/* Podemos indicarle el id a traves de backtick dentro de {} 8para indicarle que es código de Js */}
+        <Link to={`/itemDetail/${item.id}`}>
+          <Button variant="contained" size="small">
+            Ver mas
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

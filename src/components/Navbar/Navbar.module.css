@@ -3,10 +3,19 @@
 * si es con Modulos debemos cambiar el nombre del archivo css a .module.css
 * si importamos con module --> usamos camelCase
 */
-.containerNavbar{
+.containerNavbar {
   width: 100%;
   height: 10vh;
-  display: flex;  
+  display: flex;
   justify-content: space-between;
   background-color: steelblue;
+}
+
+.logoImg {
+  height: 100%;
+}
+
+.listaLinks {
+  display: flex;
+  gap: 10px;
 }
