@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { products } from "../../productsMock";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   //PROMESAS:
@@ -33,13 +34,19 @@ const ItemListContainer = () => {
   //---------------------------------
   const [items, setItems] = useState([]);
 
+  const { categoryName } = useParams();
+  console.log(categoryName);
+
   //Debemos colocarlo dento de un useEffect para eviar que se dispare 2 veces la peticion.
   useEffect(() => {
+    const productsFiltered = products.filter(
+      prod => prod.category.toLowerCase() === categoryName?.toLowerCase()
+    );
     const APIProducts = new Promise((resolve, reject) => {
-      resolve(products);
+      resolve(categoryName ? productsFiltered : products);
     });
     APIProducts.then(res => setItems(res)).catch(err => console.log(err));
-  }, []);
+  }, [categoryName]);
 
   return (
     <div>
