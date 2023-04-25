@@ -5,7 +5,7 @@ import "./App.css";
 //-BrowserRouter: Se usa como componente de apertura y cierre en distintas lineas. Dentro se arma el sistema de enrutado.
 //-Routes: Configuraremos cada uta unica, cada vista unica. Apertura y cierre en distintas lineas
 //-Route: Esta es la vista o ruta definita y si es de apertura y cierre en la misma linea
-import { BrowserRouter, Form, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CounterContainer from "./components/Counter/CounterContainer";
 import Props from "./components/Props/Props";
 import { Navbar } from "./components/Navbar/Navbar";

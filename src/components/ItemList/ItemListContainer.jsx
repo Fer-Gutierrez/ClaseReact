@@ -44,7 +44,7 @@ const ItemListContainer = () => {
     );
     const APIProducts = new Promise((resolve, reject) => {
       resolve(categoryName ? productsFiltered : products);
-    });
+    })
     APIProducts.then(res => setItems(res)).catch(err => console.log(err));
   }, [categoryName]);
 

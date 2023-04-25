@@ -5,7 +5,7 @@ import { products } from "./../../productsMock";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState();
 
   //useParams te trae siempre un objeto con propiedades, dichas propiedades tienen como key lo que le puse luego del /: en la ruta (en App.js)
   //Podemos desestructurar el objeto para acceder directamente a una o varias de sus propiedades.
