@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemDatail from "./ItemDatail";
 import { products } from "../../productsMock";
-
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
@@ -20,9 +19,18 @@ const ItemDetailContainer = () => {
     }, 2000);
   }, [id]);
 
+  const onAdd = cantidad => {
+    let data = {
+      ...product,
+      quantity: cantidad,
+    };
+    alert(`Se agregó al carrito ${cantidad} unidad/es de ${product.title}`);
+    console.log(data);
+  };
+
   return (
     <div>
-      <ItemDatail product={product} />
+      <ItemDatail product={product} onAdd={onAdd} />
     </div>
   );
 };
