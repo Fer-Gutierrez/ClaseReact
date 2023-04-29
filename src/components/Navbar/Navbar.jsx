@@ -42,9 +42,12 @@ export const Navbar = ({ color }) => {
           <Link to={`/`}>Todas</Link>
           <Link to={`/category/urbanas`}>Urbanas</Link>
           <Link to={`/category/deportivas`}>Deportivas</Link>
+          <Link to={`/form`}>Form</Link>
         </ul>
 
-        <CartWidget />
+        <Link to={"/cart"}>
+          <CartWidget />
+        </Link>
       </div>
 
       <Outlet />

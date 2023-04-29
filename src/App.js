@@ -16,6 +16,9 @@ import FetchDeHookContainer from "./components/FetchDeHook/FetchDeHookContainer"
 import CicloVidaCompContainer from "./components/CicloVidaComponente/CicloVidaCompContainer";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
 import Formulario from "./components/Form/Formulario";
+import CartContainer from "./components/Cart/CartContainer";
+import { ToastContainer } from "react-toastify";
+import AlertToastify from "./utils/alerts/Error/AlertToastifyError";
 
 function App() {
   let saludo = "hola como estas?";
@@ -39,11 +42,13 @@ function App() {
           <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
           <Route path="/Signup" element={<h1>Aca deberias registrarte</h1>} />
           <Route path="/form" element={<Formulario />} />
+          <Route path="/cart" element={<CartContainer />} />
         </Route>
 
         {/* Para rutas que no existen */}
         <Route path="*" element={<h1>Lo siento la ruta no existe</h1>} />
       </Routes>
+      <AlertToastify />
     </BrowserRouter>
   );
 }
