@@ -19,6 +19,7 @@ import Formulario from "./components/Form/Formulario";
 import CartContainer from "./components/Cart/CartContainer";
 import { ToastContainer } from "react-toastify";
 import AlertToastify from "./utils/alerts/Error/AlertToastifyError";
+import CartContextProvider from "./context/CartContext";
 
 function App() {
   let saludo = "hola como estas?";
@@ -28,6 +29,7 @@ function App() {
   //Vamos a enviar saludo a ItemList con un nombre de parametro (html) "x" y con {saludo}
   return (
     <BrowserRouter>
+    <CartContextProvider>
       <Routes>
         {/* Layout que envuelve todas las vistas (Padre) */}
         <Route element={<Navbar />}>
@@ -48,6 +50,7 @@ function App() {
         {/* Para rutas que no existen */}
         <Route path="*" element={<h1>Lo siento la ruta no existe</h1>} />
       </Routes>
+    </CartContextProvider>
       <AlertToastify />
     </BrowserRouter>
   );
