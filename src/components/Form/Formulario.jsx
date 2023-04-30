@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const Formulario = () => {
   const [numero, setNumero] = useState(0);
-  const sumar = num => {
+  const sumar = (num) => {
     setNumero(numero + num);
   };
 
@@ -12,15 +12,15 @@ const Formulario = () => {
     telefono: "",
   });
 
-  const handlerChange = e => {
-    //[e.target.value] --> Es DotNotation: se usa cuando me llega la propiedad como string y no como parametro del objeto.
+  const handlerChange = (e) => {
+    //[e.target.value] --> Es BracketNotation: se usa cuando me llega la propiedad como string y no como parametro del objeto.
     // console.log(e) //si consologeo e y me fijo como viene e.target.name va a venir como "string"
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
   console.log(userData);
 
-  const envioDeFormulario = e => {
+  const envioDeFormulario = (e) => {
     e.preventDefault();
     console.log(userData);
 
@@ -59,9 +59,10 @@ const Formulario = () => {
           value={userData.telefono}
           placeholder="Ingresa tu telefono"
         />
+        {/* Automaticamente el boton dentro de un formulario es de type="submit" */}
         <button type="submit">Enviar</button>
         {/* El boton de type="buttom" no evia en formulario, es decir no tiene por defecto el type="submit" */}
-        <button type="buttom">Cancelar</button>
+        <button type="button">Cancelar</button>
       </form>
     </div>
   );
