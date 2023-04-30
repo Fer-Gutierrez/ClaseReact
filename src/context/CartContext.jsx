@@ -32,12 +32,28 @@ const CartContextProvider = ({ children }) => {
     setCart(nuevoCarrito);
   };
 
+  const getTotalPrice = () => {
+    let total = cart.reduce((amount, product) => {
+      return amount + product.price * product.quantity;
+    }, 0);
+    return total;
+  };
+
+  const getTotalQuantity = () => {
+    let total = cart.reduce((acum, product) => {
+      return acum + product.quantity;
+    }, 0);
+    return total;
+  };
+
   let data = {
     cart,
     setCart,
     agregarAlCarrito,
     limpiarCarrito,
     deleteProductById,
+    getTotalPrice,
+    getTotalQuantity,
   };
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
 };

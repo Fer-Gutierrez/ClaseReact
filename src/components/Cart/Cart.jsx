@@ -1,10 +1,12 @@
 import { Button } from "@mui/material";
-import React, { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
 
-const Cart = ({ cart }) => {
-  const { limpiarCarrito, deleteProductById } = useContext(CartContext);
-
+const Cart = ({
+  cart,
+  limpiarCarrito,
+  deleteProductById,
+  totalPrice,
+  totalQuantity,
+}) => {
   return (
     <div>
       <h1>Estoy en el Carrito</h1>
@@ -20,6 +22,8 @@ const Cart = ({ cart }) => {
           </Button>
         </div>
       ))}
+      <h2>Estas llevando {totalQuantity} productos</h2>
+      <h1>El total de su complra es de ${totalPrice}</h1>
       <Button onClick={limpiarCarrito} variant="contained">
         Limpiar Carrito
       </Button>
