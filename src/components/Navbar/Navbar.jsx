@@ -13,13 +13,32 @@ import CartWidget from "../CartWidget/CartWidget";
 import styles from "./Navbar.module.css";
 import imgLogo from "../../assets/img/LogoMiUniverso.png";
 
+//Importaciones para usar FireBase
+import { db } from "../../firebaseConfig";
+import { getDocs, collection, getDoc } from "firebase/firestore";
+
 //Outlet: La funcion es darle acceso a los childrens del componente.- Ver la ruta que del Navbar es padre de varios componentes.
 //antes tengo que tener las rutas en App.js
 //Link: Es como una ancor <a> pero de react. Tiene beneficio de que no refrezca la pagina (no debemos hacer eso en React para no perder datos)
 import { Outlet, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 //CLASES --> En React se usa ClassName
 export const Navbar = ({ color }) => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const categoriesCollection = collection(db, "categories");
+    getDocs(categoriesCollection)
+      .then((res) => {
+        const categoriesResult = res.docs.map((category) => {
+          return { ...category.data(), id: category.id };
+        });
+        setCategories(categoriesResult);
+      })
+      .catch((err) => console.log(err));
+  });
+
   return (
     <div>
       <div className={styles.containerNavbar}>
@@ -39,10 +58,18 @@ export const Navbar = ({ color }) => {
           {/* <li style={{ backgroundColor: color }}>Todas</li>
           <li>Urbanas</li>
           <li>Deportivas</li> */}
-          <Link to={`/`}>Todas</Link>
+          {/* <Link to={`/`}>Todas</Link>
           <Link to={`/category/urbanas`}>Urbanas</Link>
-          <Link to={`/category/deportivas`}>Deportivas</Link>
+          <Link to={`/category/deportivas`}>Deportivas</Link> */}
           <Link to={`/form`}>Form</Link>
+
+          {categories.map((category) => {
+            return (
+              <Link key={category.id} to={category.path}>
+                {category.title}
+              </Link>
+            );
+          })}
         </ul>
 
         <Link to={"/cart"}>

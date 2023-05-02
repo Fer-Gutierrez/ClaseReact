@@ -4,6 +4,10 @@ import { products } from "../../productsMock";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
+//Importaciones para usar FireBase
+import { db } from "../../firebaseConfig";
+import { getDoc, collection, doc } from "firebase/firestore";
+
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
 
@@ -16,12 +20,22 @@ const ItemDetailContainer = () => {
 
   // console.log(typeof id);
 
+  //USANDO EL MOCK DE PRODUCTOS
+  // useEffect(() => {
+  //   console.log(products);
+  //   let encontrado = products.find((prod) => prod.id === +id); //Convertimos el id (string) en id (number).
+  //   setTimeout(() => {
+  //     setProduct(encontrado);
+  //   }, 2000);
+  // }, [id]);
+
+  //USANDO FIREBASE
   useEffect(() => {
-    console.log(products);
-    let encontrado = products.find((prod) => prod.id === +id); //Convertimos el id (string) en id (number).
-    setTimeout(() => {
-      setProduct(encontrado);
-    }, 2000);
+    const itemCollection = collection(db, "products");
+    const refDoc = doc(itemCollection, id);
+    getDoc(refDoc)
+      .then((res) => setProduct({ ...res.data(), id: res.id }))
+      .catch((err) => console.log(err));
   }, [id]);
 
   const onAdd = (cantidad) => {
