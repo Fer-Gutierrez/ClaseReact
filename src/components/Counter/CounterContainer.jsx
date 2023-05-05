@@ -5,15 +5,20 @@ import Counter from "./Counter";
 //Para ello debemos usar los HOOKS
 //Para hacer uso de un Hook debo importarlo desde la libreria de React --> useState()
 
-import { useState } from "react"; //Es un arreglo.
+import { useEffect, useState } from "react"; //Es un arreglo.
 import UseAlert from "../../utils/alerts/UseAlert";
 //En la posicion 0 va a tener el valor (estado).
 //En la posicion 1 va a tener una funcion que se utiliza para cambiar el estado
 
 //Ejemplo con un contador y user:
-const CounterContainer = ({ stock, onAdd }) => {
+const CounterContainer = ({ stock, onAdd, initial = 1 }) => {
+  //el useState se inicializa una vez al montarse, mas alla que se actualice el componente no cambiaria:
+  useEffect(() => {
+    setCounter(initial);
+  }, [initial]);
+
   //Desestructuramos el arroglo useState():
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(initial);
   const { alertError } = UseAlert("");
 
   //Para modificar el valor del useState() debe llamar a la funcion de cambio y en los () colocarle el valor que quiero que tenga el useState()

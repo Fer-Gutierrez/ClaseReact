@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 //Importaciones para usar FireBase
 import { db } from "../../firebaseConfig";
 import { getDocs, collection, query, where } from "firebase/firestore";
+import { ImportExport } from "@mui/icons-material";
+import { ClipLoader } from "react-spinners";
 
 const ItemListContainer = () => {
   //PROMESAS:
@@ -82,6 +84,29 @@ const ItemListContainer = () => {
       .catch((err) => console.log(err));
   }, [categoryName]);
 
+  //Primera opcion para opciones de Rendering:
+  //Return Temprano
+  if (items.length === 0) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          height: "90vh",
+          justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <ClipLoader
+          color="#030509"
+          cssOverride={{}}
+          loading
+          size={100}
+          speedMultiplier={0.7}
+        />
+      </div>
+    );
+  }
   return (
     <div>
       <ItemList items={items} />

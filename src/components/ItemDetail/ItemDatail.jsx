@@ -1,7 +1,7 @@
 import React from "react";
 import CounterContainer from "../Counter/CounterContainer";
 
-const ItemDatail = ({ product, onAdd }) => {
+const ItemDatail = ({ product, onAdd, cantidadTotal }) => {
   // console.log(product);
   return (
     <div style={{ display: "flex" }}>
@@ -16,7 +16,11 @@ const ItemDatail = ({ product, onAdd }) => {
           <p>No hay stock</p>
         )}
 
-        <CounterContainer stock={product.stock} onAdd={onAdd} />
+        <CounterContainer
+          stock={product.stock}
+          onAdd={onAdd}
+          initial={cantidadTotal}
+        />
       </div>
     </div>
   );

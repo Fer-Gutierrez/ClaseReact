@@ -3,6 +3,7 @@ import ItemDatail from "./ItemDatail";
 import { products } from "../../productsMock";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import { ClipLoader } from "react-spinners";
 
 //Importaciones para usar FireBase
 import { db } from "../../firebaseConfig";
@@ -11,7 +12,7 @@ import { getDoc, collection, doc } from "firebase/firestore";
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
 
-  const { agregarAlCarrito } = useContext(CartContext);
+  const { agregarAlCarrito, getQuantityById } = useContext(CartContext);
 
   //useParams te trae siempre un objeto con propiedades, dichas propiedades tienen como key lo que le puse luego del /: en la ruta (en App.js)
   //Podemos desestructurar el objeto para acceder directamente a una o varias de sus propiedades.
@@ -45,13 +46,37 @@ const ItemDetailContainer = () => {
     };
 
     agregarAlCarrito(data);
-
     alert(`Se agregó al carrito ${cantidad} unidad/es de ${product.title}`);
   };
 
+  let cantidadTotal = getQuantityById(product.id);
+
   return (
     <div>
-      <ItemDatail product={product} onAdd={onAdd} />
+      {!product.img && (
+        <div
+          style={{
+            display: "flex",
+            height: "90vh",
+            justifyContent: "center",
+            alignContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <ClipLoader
+            color="#030509"
+            cssOverride={{}}
+            loading
+            size={100}
+            speedMultiplier={0.7}
+          />
+        </div>
+      )}
+      <ItemDatail
+        product={product}
+        onAdd={onAdd}
+        cantidadTotal={cantidadTotal}
+      />
     </div>
   );
 };
