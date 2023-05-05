@@ -37,7 +37,7 @@ export const Navbar = ({ color }) => {
         setCategories(categoriesResult);
       })
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   return (
     <div>

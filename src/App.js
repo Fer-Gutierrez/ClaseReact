@@ -20,6 +20,7 @@ import CartContainer from "./components/Cart/CartContainer";
 import { ToastContainer } from "react-toastify";
 import AlertToastify from "./utils/alerts/Error/AlertToastifyError";
 import CartContextProvider from "./context/CartContext";
+import FormCheckoutContainer from "./components/FormCheckout/FormCheckoutContainer";
 
 function App() {
   let saludo = "hola como estas?";
@@ -29,28 +30,29 @@ function App() {
   //Vamos a enviar saludo a ItemList con un nombre de parametro (html) "x" y con {saludo}
   return (
     <BrowserRouter>
-    <CartContextProvider>
-      <Routes>
-        {/* Layout que envuelve todas las vistas (Padre) */}
-        <Route element={<Navbar />}>
-          {/* La ruta principal */}
-          <Route path="/" element={<ItemListContainer />} />
-          <Route
-            path="/category/:categoryName"
-            element={<ItemListContainer />}
-          />
+      <CartContextProvider>
+        <Routes>
+          {/* Layout que envuelve todas las vistas (Padre) */}
+          <Route element={<Navbar />}>
+            {/* La ruta principal */}
+            <Route path="/" element={<ItemListContainer />} />
+            <Route
+              path="/category/:categoryName"
+              element={<ItemListContainer />}
+            />
 
-          {/* Las distintas vistas */}
-          <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
-          <Route path="/Signup" element={<h1>Aca deberias registrarte</h1>} />
-          <Route path="/form" element={<Formulario />} />
-          <Route path="/cart" element={<CartContainer />} />
-        </Route>
+            {/* Las distintas vistas */}
+            <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
+            <Route path="/Signup" element={<h1>Aca deberias registrarte</h1>} />
+            <Route path="/form" element={<Formulario />} />
+            <Route path="/cart" element={<CartContainer />} />
+            <Route path="/checkout" element={<FormCheckoutContainer />} />
+          </Route>
 
-        {/* Para rutas que no existen */}
-        <Route path="*" element={<h1>Lo siento la ruta no existe</h1>} />
-      </Routes>
-    </CartContextProvider>
+          {/* Para rutas que no existen */}
+          <Route path="*" element={<h1>Lo siento la ruta no existe</h1>} />
+        </Routes>
+      </CartContextProvider>
       <AlertToastify />
     </BrowserRouter>
   );

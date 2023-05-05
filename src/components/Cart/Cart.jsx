@@ -6,6 +6,7 @@ const Cart = ({
   deleteProductById,
   totalPrice,
   totalQuantity,
+  navigate,
 }) => {
   return (
     <div>
@@ -26,6 +27,9 @@ const Cart = ({
       <h1>El total de su complra es de ${totalPrice}</h1>
       <Button onClick={limpiarCarrito} variant="contained">
         Limpiar Carrito
+      </Button>
+      <Button onClick={() => navigate("/checkout")} variant="contained">
+        Finalizar Compra
       </Button>
     </div>
   );
