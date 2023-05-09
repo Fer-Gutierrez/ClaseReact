@@ -8,12 +8,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCxCtCrdsSLKOdnNcylhh1zIFSegnYt7n4",
-  authDomain: "mi-universo-astral.firebaseapp.com",
-  projectId: "mi-universo-astral",
-  storageBucket: "mi-universo-astral.appspot.com",
-  messagingSenderId: "796735119818",
-  appId: "1:796735119818:web:38edd32abf3cabdf58af33",
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
 };
 
 // Initialize Firebase
